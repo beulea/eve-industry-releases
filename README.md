@@ -42,13 +42,15 @@ Once installed, the app checks here for updates and installs them in place — a
 
 Builds are unsigned (no paid Apple/Windows certificate yet), so the OS shows a one-time warning. This is expected for fan tools and it's safe to proceed:
 
-- **macOS** — Gatekeeper: right-click the app → **Open** → **Open**; or run
+- **macOS** — Gatekeeper says the app "Not Opened" / can't be verified:
+  1. Click **Done** (not "Move to Bin"), then open **System Settings → Privacy & Security**, scroll down to Security, and click **Open Anyway** → confirm. *(On macOS 14 Sonoma and older, right-clicking the app → **Open** → **Open** also works — macOS 15 removed that shortcut.)*
+  2. Or, in Terminal (type the name with Tab-completion — it contains a typographic apostrophe):
   ```sh
-  xattr -dr com.apple.quarantine "/Applications/Beuleas Eve Industry.app"
+  xattr -dr com.apple.quarantine "/Applications/Beulea’s Eve Industry.app"
   ```
 - **Windows** — SmartScreen ("Windows protected your PC"): click **More info** → **Run anyway**.
 
-After that it launches normally and updates itself automatically.
+This is a one-time step for a fresh download: after that it launches normally, and auto-updates never re-trigger the warning.
 
 ## Found it useful? Send ISK — o7
 
