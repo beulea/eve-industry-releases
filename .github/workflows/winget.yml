@@ -1,0 +1,21 @@
+# Lives in the PUBLIC eve-industry-releases repo as .github/workflows/winget.yml
+# (this is the bootstrap copy — see docs/WINGET.md). On every PUBLISHED release it
+# opens the winget-pkgs version PR automatically: new installer URL + sha256.
+# One-time setup: repo secret WINGET_TOKEN = classic PAT (beulea, `public_repo`
+# scope); the action forks microsoft/winget-pkgs under beulea and pushes there.
+name: winget
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  winget:
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal9/winget-releaser@main
+        with:
+          identifier: Beulea.EveIndustry
+          # Only the Windows NSIS installer — mac assets live in the same release.
+          installers-regex: '_x64-setup\.exe$'
+          token: ${{ secrets.WINGET_TOKEN }}
