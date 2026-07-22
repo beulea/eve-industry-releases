@@ -1,0 +1,74 @@
+name: 🐞 Bug report
+description: Something is broken, crashes, or doesn't behave the way the wiki says it should.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! Two quick checks first:
+        - The app auto-updates on launch — if you suspect an old version, **character menu → Check for updates**.
+        - If it's about *numbers being off* (cost, profit, prices), use the **“Numbers look wrong”** template instead — it asks for the right details.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Open the character menu (top right) — the version is in the footer.
+      placeholder: "0.2.5"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - "Windows 11"
+        - "Windows 10"
+        - "macOS (Apple Silicon)"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where in the app
+      options:
+        - "Build tab"
+        - "Invention"
+        - "Plan"
+        - "Sourcing"
+        - "Ore / Ice deals"
+        - "Reactions / Alchemy"
+        - "Ledger / Net worth"
+        - "Characters / Roster / EVE login"
+        - "Config panel (facilities, skills, prices)"
+        - "Update / install"
+        - "Somewhere else"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you do, what did you expect, and what did the app do instead? Paste exact error text if there was any.
+      placeholder: |
+        I clicked … expecting … but instead …
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: If you can make it happen again, list the steps — it usually cuts the fix time in half.
+      placeholder: |
+        1. Open …
+        2. Click …
+        3. See …
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag & drop images here. Feel free to blur character names or wallet numbers — they're rarely needed.
+    validations:
+      required: false

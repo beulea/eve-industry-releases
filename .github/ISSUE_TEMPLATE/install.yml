@@ -1,0 +1,54 @@
+name: 📦 Install or update problem
+description: The app won't download, install, launch, or update.
+title: "[install] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        First — **the scary warnings are expected**, not an infection:
+        - **Windows SmartScreen** (“Windows protected your PC”): click **More info → Run anyway**. The installer is unsigned (signing certificates require disclosing a real-world identity), so Windows shows this for *every* new unsigned app.
+        - **macOS** (“Apple could not verify…”): **System Settings → Privacy & Security → Open Anyway** (steps in the [install guide](https://github.com/beulea/eve-industry-releases/wiki/Install-and-First-Launch)).
+
+        If you'd rather not click through warnings at all, that's fair — the [FAQ](https://github.com/beulea/eve-industry-releases/wiki/FAQ) covers what the app does and doesn't touch.
+        Still stuck after that? This form is for you.
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - "Windows 11"
+        - "Windows 10"
+        - "macOS (Apple Silicon)"
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where does it fail?
+      options:
+        - "Downloading the installer"
+        - "SmartScreen / antivirus blocks it and “Run anyway” doesn't help"
+        - "macOS won't open it even via “Open Anyway”"
+        - "Installer starts but errors out"
+        - "Installed, but the app won't launch"
+        - "Auto-update failed or the app relaunched into the old version"
+        - "“Check for updates” says the update server is unreachable"
+        - "Something else"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version (if it launches)
+      description: Character menu → footer. Leave empty if the app never started.
+      placeholder: "0.2.5"
+    validations:
+      required: false
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: What exactly happens
+      description: The exact error text (or a screenshot of it) matters most — antivirus name and its verdict too, if one is involved.
+    validations:
+      required: true

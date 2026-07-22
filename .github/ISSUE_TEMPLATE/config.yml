@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Wiki — guides, math reference & FAQ
+    url: https://github.com/beulea/eve-industry-releases/wiki
+    about: How every tab works, how the numbers are computed, install steps and known quirks. Worth a look first.
+  - name: ⬇️ Latest release
+    url: https://github.com/beulea/eve-industry-releases/releases/latest
+    about: Your problem may already be fixed — the app updates itself, but you can grab the newest installer here.

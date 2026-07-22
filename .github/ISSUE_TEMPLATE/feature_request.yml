@@ -1,0 +1,31 @@
+name: 💡 Feature request
+description: Something the app should do, or do better.
+title: "[idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The most useful requests describe the **problem in your industry routine**, not a UI design — describe the itch even if you have no idea how to solve it.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you doing in EVE that the app doesn't help with, or makes awkward?
+      placeholder: |
+        Every evening I … and the app can't …, so I end up alt-tabbing to a spreadsheet to …
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How you handle it today
+      placeholder: "Spreadsheet / another tool / in-game notepad / I just don't"
+    validations:
+      required: false
+  - type: textarea
+    id: idea
+    attributes:
+      label: Rough idea of a solution (optional)
+    validations:
+      required: false

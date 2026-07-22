@@ -1,0 +1,68 @@
+name: 🧮 Numbers look wrong
+description: A cost, price, profit or yield doesn't match what you expected or what another tool shows.
+title: "[numbers] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most “wrong number” reports turn out to be a *different input*, not a bug — so this form asks for the inputs.
+        Two things worth knowing:
+        - Prices are a **snapshot**: the freshness line under the build summary says when they were loaded. Hit Refresh before comparing.
+        - The app prices materials at **real order-book depth** (what you'd actually pay), not the midpoint many sites use — small differences vs other tools are usually that, not an error. A real mismatch with the same inputs is a bug and we want it!
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Character menu (top right) → footer.
+      placeholder: "0.2.5"
+    validations:
+      required: true
+  - type: input
+    id: item
+    attributes:
+      label: Item and runs
+      placeholder: "Sabre, 10 runs"
+    validations:
+      required: true
+  - type: dropdown
+    id: which-number
+    attributes:
+      label: Which number is off?
+      options:
+        - "Material cost"
+        - "Job / installation fee"
+        - "Invention (odds, cost, decryptor pick)"
+        - "Profit / margin / ISK per hour"
+        - "Market price the app used"
+        - "Ore reprocess value"
+        - "Reaction / alchemy"
+        - "Something else"
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: What you see vs what you expect
+      description: Paste both numbers and say where the expected one comes from (in-game window, EVE Ref, Ravworks, your spreadsheet…).
+      placeholder: |
+        App says: 41.2M material cost
+        In-game / EVE Ref says: 38.9M
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your setup
+      description: The inputs that change the math — without these we can't reproduce your number.
+      placeholder: |
+        Facility: Raitaru, high-sec, T1 Ship ME rig
+        Blueprint: ME 10 / TE 20 (owned)
+        Price mode: sell · Region: The Forge
+        Skills: imported from ESI (or: set manually)
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        💡 A screenshot of the materials table (and the in-game quote you're comparing against) says more than any description.
