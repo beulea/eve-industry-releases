@@ -31,7 +31,13 @@ So I built the tool I wanted: **real order-book depth**, a **price-freshness clo
 
 ## Download
 
-Get the latest build from the [**Releases**](../../releases/latest) page:
+**Windows — the easy way** (no SmartScreen warning, terminal one-liner):
+
+```
+winget install Beulea.EveIndustry
+```
+
+Or grab the latest build from the [**Releases**](../../releases/latest) page:
 
 - **macOS** (Apple Silicon): `.dmg`
 - **Windows** (x64): `…-setup.exe` (NSIS installer)

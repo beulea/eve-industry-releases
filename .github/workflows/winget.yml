@@ -8,6 +8,13 @@ name: winget
 on:
   release:
     types: [released]
+  # Manual catch-up: submit a specific already-published release (e.g. after
+  # the initial-package moderation queue, when auto runs failed in the interim).
+  workflow_dispatch:
+    inputs:
+      release-tag:
+        description: "Release tag to submit (e.g. v0.2.10)"
+        required: true
 
 jobs:
   winget:
@@ -18,4 +25,5 @@ jobs:
           identifier: Beulea.EveIndustry
           # Only the Windows NSIS installer — mac assets live in the same release.
           installers-regex: '_x64-setup\.exe$'
+          release-tag: ${{ github.event.inputs.release-tag || github.event.release.tag_name }}
           token: ${{ secrets.WINGET_TOKEN }}
